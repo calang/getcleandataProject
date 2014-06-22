@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<!-- saved from url=(0014)about:internet -->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=9" >
+
+<title>Summary of Human Activity Recognition data <br> collected with a smartphone<br><em>CodeBook</em></title>
+
+<style type="text/css">
+body, td {
+   font-family: sans-serif;
+   background-color: white;
+   font-size: 12px;
+   margin: 8px;
+}
+
+tt, code, pre {
+   font-family: 'DejaVu Sans Mono', 'Droid Sans Mono', 'Lucida Console', Consolas, Monaco, monospace;
+}
+
+h1 { 
+   font-size:2.2em; 
+}
+
+h2 { 
+   font-size:1.8em; 
+}
+
+h3 { 
+   font-size:1.4em; 
+}
+
+h4 { 
+   font-size:1.0em; 
+}
+
+h5 { 
+   font-size:0.9em; 
+}
+
+h6 { 
+   font-size:0.8em; 
+}
+
+a:visited {
+   color: rgb(50%, 0%, 50%);
+}
+
+pre {	
+   margin-top: 0;
+   max-width: 95%;
+   border: 1px solid #ccc;
+   white-space: pre-wrap;
+}
+
+pre code {
+   display: block; padding: 0.5em;
+}
+
+code.r, code.cpp {
+   background-color: #F8F8F8;
+}
+
+table, td, th {
+  border: none;
+}
+
+blockquote {
+   color:#666666;
+   margin:0;
+   padding-left: 1em;
+   border-left: 0.5em #EEE solid;
+}
+
+hr {
+   height: 0px;
+   border-bottom: none;
+   border-top-width: thin;
+   border-top-style: dotted;
+   border-top-color: #999999;
+}
+
+@media print {
+   * { 
+      background: transparent !important; 
+      color: black !important; 
+      filter:none !important; 
+      -ms-filter: none !important; 
+   }
+
+   body { 
+      font-size:12pt; 
+      max-width:100%; 
+   }
+       
+   a, a:visited { 
+      text-decoration: underline; 
+   }
+
+   hr { 
+      visibility: hidden;
+      page-break-before: always;
+   }
+
+   pre, blockquote { 
+      padding-right: 1em; 
+      page-break-inside: avoid; 
+   }
+
+   tr, img { 
+      page-break-inside: avoid; 
+   }
+
+   img { 
+      max-width: 100% !important; 
+   }
+
+   @page :left { 
+      margin: 15mm 20mm 15mm 10mm; 
+   }
+     
+   @page :right { 
+      margin: 15mm 10mm 15mm 20mm; 
+   }
+
+   p, h2, h3 { 
+      orphans: 3; widows: 3; 
+   }
+
+   h2, h3 { 
+      page-break-after: avoid; 
+   }
+}
+
+</style>
+
+
+
+
+
+</head>
+
+<body>
+<h1>Summary of Human Activity Recognition data <br> collected with a smartphone<br><em>CodeBook</em></h1>
+
+<h2>Introduction</h2>
+
+<p>This work summarizes the data collected and processed in [1], as part of the course <a href="https://www.coursera.org/course/getdata">Getting and Cleaning Data</a>[2].</p>
+
+<p>The objective of this Course Project is to summarize the data into a <em>tidy</em> data set. Tidy data is defined such that</p>
+
+<ol>
+<li>each variable is in one column,
+
+<ul>
+<li>and variables have a human-readable name</li>
+</ul></li>
+<li>each observation is in a different row<br/></li>
+<li>there is one table for each kind of observed item
+
+<ul>
+<li>each table is stored in a different file</li>
+</ul></li>
+<li>if there is more than one table, there should be columns in the tables allowing to link them together.</li>
+</ol>
+
+<h2>Data from the original experiment</h2>
+
+<p>Data was collected from individuals wearing a smartphone.  The smartphone collected 3-axial linear acceleration and 3-axial angular velocity measurements   using its embedded accelerometer and gyroscope.</p>
+
+<p>The measurements were pre-processed and filtered resulting in a set of 561 variables, activity labels and an identifier of the subject in the experiment.</p>
+
+<p>Detailed descriptions of the variables produced in the original experiment can be found in [1].</p>
+
+<h2>Variables in this data set</h2>
+
+<p>The variables are stored in a single file called &ldquo;subject_activity_averages.txt&rdquo;.  These correspond to variables captured in the original experiment, averaged by subject and the type of physical activity at the time the measurement was made.</p>
+
+<p>The <strong>first two variables</strong> are</p>
+
+<table><thead>
+<tr>
+<th>variable name</th>
+<th>content</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>subject</strong></td>
+<td>a number identifying the person participating in the experiment</td>
+</tr>
+<tr>
+<td><strong>activity</strong></td>
+<td>the type of physical activity they were doing at the time of the  measurement</td>
+</tr>
+</tbody></table>
+
+<p><br>
+The <strong>rest of the variables</strong> (from #3 to #81) are named using the following conventions.</p>
+
+<table><thead>
+<tr>
+<th>name part</th>
+<th>interpretation</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Mean-of</td>
+<td>This prefix is present for all the variables. It indicates that the variable was calculated as the mean of one of the original variables, grouped by subject and activity</td>
+</tr>
+<tr>
+<td>tBodyAcc<br>tGravityAcc<br>tBodyAccJerk<br>tBodyGyro<br>tBodyGyroJerk<br>tBodyAccMag<br>tGravityAccMag<br>tBodyAccJerkMag<br>tBodyGyroMag<br>tBodyGyroJerkMag<br>fBodyAcc<br>fBodyAccJerk<br>fBodyGyro<br>fBodyAccMag<br>fBodyBodyAccJerkMag<br>fBodyBodyGyroMag<br>fBodyBodyGyroJerkMag</td>
+<td>basic feature extracted from the measurements, after pre-processing and filtering</td>
+</tr>
+<tr>
+<td>mean()<br>std()<br>meanFreq()</td>
+<td>indicates the aggregation made on the original measurements</td>
+</tr>
+<tr>
+<td>X<br>Y<br>Z</td>
+<td>indicates the direction of the original signal measurement</td>
+</tr>
+</tbody></table>
+
+<h2>Data Transformations made</h2>
+
+<p>Before doing any data transformation several tests were made to ensure that the original data was clean without any missing values and that the tables were coherent in number of rows and columns.</p>
+
+<h3>Merging or training and test data sets</h3>
+
+<p>The original data was split into training and test sets.  They were brought together as part of a single data set, after checking that no subject had observations in both sets.</p>
+
+<p>A single data set was created with subject, activity and measurement variables</p>
+
+<h3>Extraction of mean and standard deviation measurements</h3>
+
+<p>As requested for the Course Project, we extracted from the single set created above only the measurement variables that had the terms <strong>&ldquo;mean&rdquo;</strong> or <strong>&ldquo;std&rdquo;</strong> as part of their name.</p>
+
+<p>We did however excluded variables with <strong>&ldquo;Angle&rdquo;</strong> as part of their name.  We took this to be an indication that the variable was measuring an angle and was not the immediate result of a mean or standard deviation calculation.</p>
+
+<p><strong>Subject</strong> and <strong>Activity</strong> were kept as identifiers of the items of observation for the rows</p>
+
+<h3>Used descriptive activity names to name the activities in the data set</h3>
+
+<p>The variable Activity was encoded with numerical values.</p>
+
+<p>We used the <em>activity_labels.txt</em> file to convert the numeric codes into descriptive strings naming the corresponding activity, using the merge function.</p>
+
+<p>Finally, we replaced the numeric activity column with a column containing the newly calculated activity names. For this we used the cbind function to assemble a new data frame from subsets of the original one and a subset with the activity names from the merge.</p>
+
+<h3>Appropriately label the data set with descriptive variable names</h3>
+
+<p>We took the contents of the <em>features.txt</em> file and used it as a list of names for the original variables.</p>
+
+<p>Then we simply used the list of indices that we had previously calculated for the variable columns that we wanted to keep, to extract the sub-list of names for the kept variables.</p>
+
+<p>Finally, we simply assigned this sublist of variable names to the names of the data set with the reduced set of variables, starting at column 3 after giving the first two columns the names of &ldquo;subject&rdquo; and &ldquo;activity&rdquo;.</p>
+
+<h3>Create a second, independent tidy data set with the average of each variable for each activity and each subject</h3>
+
+<p>This was done by</p>
+
+<ol>
+<li>transforming the data set into a &ldquo;tall&rdquo; data set formed by subject, activity, variable_name and variable_value columns, using the <strong>melt</strong> function.</li>
+<li>using the <strong>aggregate</strong> function to calculate the average of each variable for each subject/activity combination group</li>
+<li>using the <strong>dcast</strong> function to put the data back together into a wide format with each variable in a separate column.</li>
+</ol>
+
+<p>This produced a single data frame that complied with the definition of a <em>tidy</em> data set given above, after it was stored in a single text file, with a first header line and all header and data values in the same row separated by spaces.</p>
+
+<h2>Files in this project</h2>
+
+<p>This includes the produced tidy data set, the R code used to produce it, CookBook and README files and the files used from the original project.</p>
+
+<table><thead>
+<tr>
+<th>name</th>
+<th>contents</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>top level</strong>:</td>
+<td></td>
+</tr>
+<tr>
+<td>CodeBook.html</td>
+<td>html version produced for this file</td>
+</tr>
+<tr>
+<td>CodeBook.md</td>
+<td>this file</td>
+</tr>
+<tr>
+<td>README.html</td>
+<td>html version of the README.md file</td>
+</tr>
+<tr>
+<td>README.md</td>
+<td>overall introduction to the project</td>
+</tr>
+<tr>
+<td>run_analysis.R</td>
+<td>R code used to produce the resulting tidy data set</td>
+</tr>
+<tr>
+<td>subject_activity_averages.txt</td>
+<td>tidy data set produced in this project</td>
+</tr>
+<tr>
+<td>UCI HAR Dataset/</td>
+<td>directory with a copy of the files used in this project, taken from [3]</td>
+</tr>
+<tr>
+<td><strong>under UCI HAR Dataset/</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>activity_labels.txt</td>
+<td>names for the numeric encoding of the physical activities</td>
+</tr>
+<tr>
+<td>features_info.txt</td>
+<td>description of features, how they were captured and processed and name parts for the variables</td>
+</tr>
+<tr>
+<td>features.txt</td>
+<td>numbered list of variables names</td>
+</tr>
+<tr>
+<td>README.txt</td>
+<td>original project README FILE</td>
+</tr>
+<tr>
+<td><strong>under UCI HAR Dataset/train</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>subject_train.txt</td>
+<td>subject numbers for the training set</td>
+</tr>
+<tr>
+<td>X_train.txt</td>
+<td>variable values for the original training data set</td>
+</tr>
+<tr>
+<td>y_train.txt</td>
+<td>variable labels for the training set</td>
+</tr>
+<tr>
+<td><strong>under UCI HAR Dataset/test</strong></td>
+<td></td>
+</tr>
+<tr>
+<td>subject_test.txt</td>
+<td>subject numbers for the test set</td>
+</tr>
+<tr>
+<td>X_test.txt</td>
+<td>variable values for the original test data set</td>
+</tr>
+<tr>
+<td>test/y_test.txt</td>
+<td>variable labels for the test set</td>
+</tr>
+</tbody></table>
+
+<h2>License</h2>
+
+<p>Use of this data set in publications must be acknowledged by referencing the following publication [1] </p>
+
+<p>This data set is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.</p>
+
+<p>Jorge L. Reyes-Ortiz, Alessandro Ghio, Luca Oneto, Davide Anguita. November 2012.</p>
+
+<h2>References</h2>
+
+<p>[1] Davide Anguita, Alessandro Ghio, Luca Oneto, Xavier Parra and Jorge L. Reyes-Ortiz. <em>Human Activity Recognition on Smartphones using a Multiclass Hardware-Friendly Support Vector Machine</em>. International Workshop of Ambient Assisted Living (IWAAL 2012). Vitoria-Gasteiz, Spain. Dec 2012.  url: <a href="http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones">http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones</a>. Read on 2014-06-21.</p>
+
+<p>[2] Leek, Peng, Caflo; <em>Getting and Cleaning Data</em>; Johns Hopkins Bloomberg School of Public Health, <a href="https://www.coursera.org/">Coursera</a>; url: <a href="https://www.coursera.org/course/getdata">https://www.coursera.org/course/getdata</a>; read on 2014-06-22.</p>
+
+<p>[3] Data used for this project. URL=<a href="https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip">https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip</a></p>
+
+</body>
+
+</html>
+
