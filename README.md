@@ -56,7 +56,7 @@ or in the code and comments in the *run_analysis.R* file
 
 License
 ----
-Use of this data set in publications must be acknowledged by referencing the following publication [1] 
+Use of the original data set in publications must be acknowledged by referencing the following publication [1] 
 
 This data set is distributed AS-IS and no responsibility implied or explicit can be addressed to the authors or their institutions for its use or misuse. Any commercial use is prohibited.
 
